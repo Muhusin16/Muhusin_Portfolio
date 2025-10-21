@@ -3,12 +3,8 @@ import { Github, Linkedin, Mail, Download, ChevronDown } from 'lucide-react'
 
 const Hero = () => {
   const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = './Mohamed_Muhusin_CV.txt';
-    link.download = 'Mohamed_Muhusin_CV.txt';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Open CV in new tab for viewing/downloading
+    window.open('./Mohamed_Muhusin_CV.html', '_blank');
   };
 
   const containerVariants = {
@@ -105,7 +101,7 @@ const Hero = () => {
               className="btn-primary flex items-center gap-2"
             >
               <Download className="h-5 w-5" />
-              Download CV
+              View CV
             </motion.button>
             
             <motion.button
