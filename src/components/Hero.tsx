@@ -89,14 +89,16 @@ const Hero = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <motion.button
+            <motion.a
+              href="/Mohamed_Muhusin_CV.txt"
+              download="Mohamed_Muhusin_CV.txt"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-primary flex items-center gap-2"
             >
               <Download className="h-5 w-5" />
               Download CV
-            </motion.button>
+            </motion.a>
             
             <motion.button
               whileHover={{ scale: 1.05 }}
