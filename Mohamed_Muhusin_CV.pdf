@@ -1,0 +1,119 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 200
+>>
+stream
+BT
+/F1 12 Tf
+72 720 Td
+(Mohamed Muhusin S - Software Engineer) Tj
+0 -20 Td
+(Email: muhusin161099@gmail.com) Tj
+0 -15 Td
+(Phone: +91 8508179608) Tj
+0 -15 Td
+(Location: Bengaluru, India) Tj
+0 -15 Td
+(GitHub: https://github.com/Muhusin16) Tj
+0 -15 Td
+(LinkedIn: https://www.linkedin.com/in/mohamed-muhusin) Tj
+0 -30 Td
+(Professional Summary) Tj
+0 -15 Td
+(Passionate developer with over 2+ years of experience in building responsive web applications.) Tj
+0 -15 Td
+(Proficient in Node.js, Express.js, MongoDB, Firebase and skilled in various frameworks) Tj
+0 -15 Td
+(including React.js, Next.js and Strapi.) Tj
+0 -30 Td
+(Work Experience) Tj
+0 -15 Td
+(Software Engineer - Zool Tech Solutions Pvt Ltd) Tj
+0 -15 Td
+(Bengaluru, Karnataka, India | 08/2023 - Present) Tj
+0 -15 Td
+(• Successfully completed Housing First Minnesota project) Tj
+0 -15 Td
+(• Developed full-stack applications using Next.js) Tj
+0 -15 Td
+(• Worked on Gemini manufacturing company web application) Tj
+0 -15 Td
+(• Currently developing Lost and Found application) Tj
+0 -15 Td
+(• Maintained and integrated RESTful APIs) Tj
+0 -30 Td
+(Technical Skills) Tj
+0 -15 Td
+(Frontend: React.js, Next.js, HTML, CSS, JavaScript, TypeScript) Tj
+0 -15 Td
+(Backend: Node.js, Express.js, MongoDB, MySQL, Firebase) Tj
+0 -15 Td
+(Tools: Git, GitHub, Bitbucket, Docker, RESTful APIs, Strapi) Tj
+0 -30 Td
+(Education) Tj
+0 -15 Td
+(Bachelor of Engineering - BE, Mechanical Engineering) Tj
+0 -15 Td
+(DHAANISH AHMED INSTITUTE OF TECHNOLOGY) Tj
+0 -15 Td
+(Coimbatore, India | 09/2017 - 06/2021) Tj
+0 -15 Td
+(Graduated with CGPA: 8.7/10) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000000521 00000 n 
+trailer
+<<
+/Size 6
+/Root 1 0 R
+>>
+startxref
+618
+%%EOF

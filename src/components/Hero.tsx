@@ -3,8 +3,13 @@ import { Github, Linkedin, Mail, Download, ChevronDown } from 'lucide-react'
 
 const Hero = () => {
   const handleDownloadCV = () => {
-    // Open CV in new tab for viewing/downloading
-    window.open('./Mohamed_Muhusin_CV.html', '_blank');
+    // Create and download PDF CV
+    const link = document.createElement('a');
+    link.href = './Mohamed_Muhusin_CV.pdf';
+    link.download = 'Mohamed_Muhusin_CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const containerVariants = {
@@ -30,7 +35,7 @@ const Hero = () => {
   }
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/Muhusinte', label: 'GitHub' },
+    { icon: Github, href: 'https://github.com/Muhusin16', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/mohamed-muhusin', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:muhusin161099@gmail.com', label: 'Email' },
   ]
@@ -101,7 +106,7 @@ const Hero = () => {
               className="btn-primary flex items-center gap-2"
             >
               <Download className="h-5 w-5" />
-              View CV
+              Download CV
             </motion.button>
             
             <motion.button
