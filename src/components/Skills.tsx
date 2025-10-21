@@ -1,22 +1,79 @@
 import { motion } from 'framer-motion'
+import { useInView } from 'framer-motion'
+import { useRef } from 'react'
 import { 
-  Code, 
   Database, 
   Globe, 
-  Palette,
-  GitBranch,
-  Zap,
-  Layers
+  Server, 
+  GitBranch
 } from 'lucide-react'
 
 const Skills = () => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+
+  const skillCategories = [
+    {
+      title: 'Frontend Development',
+      icon: Globe,
+      color: 'from-blue-500 to-cyan-500',
+      skills: [
+        { name: 'React', level: 90, color: 'bg-blue-500' },
+        { name: 'Next.js', level: 85, color: 'bg-slate-500' },
+        { name: 'TypeScript', level: 80, color: 'bg-blue-600' },
+        { name: 'Tailwind CSS', level: 95, color: 'bg-cyan-500' },
+        { name: 'JavaScript', level: 90, color: 'bg-yellow-500' },
+        { name: 'HTML/CSS', level: 95, color: 'bg-orange-500' },
+      ]
+    },
+    {
+      title: 'Backend Development',
+      icon: Server,
+      color: 'from-green-500 to-emerald-500',
+      skills: [
+        { name: 'Node.js', level: 85, color: 'bg-green-500' },
+        { name: 'Express.js', level: 80, color: 'bg-gray-500' },
+        { name: 'RESTful APIs', level: 85, color: 'bg-blue-500' },
+        { name: 'GraphQL', level: 70, color: 'bg-pink-500' },
+        { name: 'Microservices', level: 75, color: 'bg-purple-500' },
+        { name: 'Authentication', level: 80, color: 'bg-red-500' },
+      ]
+    },
+    {
+      title: 'Database & Cloud',
+      icon: Database,
+      color: 'from-purple-500 to-pink-500',
+      skills: [
+        { name: 'MongoDB', level: 85, color: 'bg-green-600' },
+        { name: 'Firebase', level: 80, color: 'bg-orange-500' },
+        { name: 'MySQL', level: 75, color: 'bg-blue-600' },
+        { name: 'PostgreSQL', level: 70, color: 'bg-blue-700' },
+        { name: 'Redis', level: 65, color: 'bg-red-500' },
+        { name: 'AWS', level: 70, color: 'bg-orange-600' },
+      ]
+    },
+    {
+      title: 'Tools & Others',
+      icon: GitBranch,
+      color: 'from-amber-500 to-orange-500',
+      skills: [
+        { name: 'Git', level: 90, color: 'bg-orange-500' },
+        { name: 'Docker', level: 75, color: 'bg-blue-500' },
+        { name: 'Strapi', level: 80, color: 'bg-purple-500' },
+        { name: 'Figma', level: 70, color: 'bg-pink-500' },
+        { name: 'VS Code', level: 95, color: 'bg-blue-500' },
+        { name: 'Linux', level: 75, color: 'bg-yellow-600' },
+      ]
+    }
+  ]
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.1
+        staggerChildren: 0.2
       }
     }
   }
@@ -32,182 +89,118 @@ const Skills = () => {
     }
   }
 
-  const skillCategories = [
-    {
-      title: 'Frontend Development',
-      icon: Palette,
-      skills: [
-        { name: 'React.js', level: 90 },
-        { name: 'Next.js', level: 85 },
-        { name: 'HTML', level: 95 },
-        { name: 'CSS', level: 90 },
-        { name: 'JavaScript', level: 88 },
-        { name: 'TypeScript', level: 80 },
-      ]
-    },
-    {
-      title: 'Backend Development',
-      icon: Database,
-      skills: [
-        { name: 'Node.js', level: 90 },
-        { name: 'Express.js', level: 85 },
-        { name: 'MongoDB', level: 85 },
-        { name: 'MySQL', level: 80 },
-        { name: 'Firebase', level: 85 },
-        { name: 'API Integration', level: 90 },
-      ]
-    },
-    {
-      title: 'Tools & Version Control',
-      icon: GitBranch,
-      skills: [
-        { name: 'Git', level: 90 },
-        { name: 'GitHub', level: 90 },
-        { name: 'Bitbucket', level: 80 },
-        { name: 'Docker', level: 75 },
-        { name: 'RESTful APIs', level: 90 },
-        { name: 'Strapi', level: 70 },
-      ]
-    }
-  ]
-
-  const technologies = [
-    { name: 'Node.js', icon: Code },
-    { name: 'Express.js', icon: Code },
-    { name: 'MongoDB', icon: Database },
-    { name: 'JavaScript', icon: Code },
-    { name: 'React.js', icon: Globe },
-    { name: 'Next.js', icon: Globe },
-    { name: 'TypeScript', icon: Code },
-    { name: 'HTML', icon: Globe },
-    { name: 'CSS', icon: Palette },
-    { name: 'Firebase', icon: Zap },
-    { name: 'MySQL', icon: Database },
-    { name: 'Docker', icon: Layers },
-  ]
-
   return (
-    <section id="skills" className="section-padding">
-      <div className="max-w-7xl mx-auto">
+    <section id="skills" className="section-padding bg-slate-50 dark:bg-slate-800 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-500/20 to-blue-500/20"></div>
+      </div>
+
+      <div className="container-custom relative z-10">
         <motion.div
+          ref={ref}
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          animate={isInView ? "visible" : "hidden"}
+          className="space-y-16"
         >
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl sm:text-5xl font-bold mb-6"
-          >
-            My <span className="gradient-text">Skills</span>
-          </motion.h2>
-          
-          <motion.p
-            variants={itemVariants}
-            className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
-          >
-            Technologies and tools I work with
-          </motion.p>
-        </motion.div>
+          {/* Header */}
+          <motion.div variants={itemVariants} className="text-center space-y-4">
+            <h2 className="text-5xl font-bold text-slate-800 dark:text-slate-200">
+              My <span className="gradient-text">Skills</span>
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"></div>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              A comprehensive overview of my technical expertise and the tools I use to bring ideas to life
+            </p>
+          </motion.div>
 
-        {/* Technology Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-16"
-        >
-              {technologies.map((tech) => (
-            <motion.div
-              key={tech.name}
-              variants={itemVariants}
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              className="flex flex-col items-center p-6 bg-white dark:bg-dark-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
-            >
-              <tech.icon className="h-8 w-8 text-primary-600 mb-3 group-hover:text-primary-500 transition-colors duration-300" />
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">
-                {tech.name}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Skill Categories */}
-        <div className="space-y-12">
-          {skillCategories.map((category) => (
-            <motion.div
-              key={category.title}
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="bg-white dark:bg-dark-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
+          {/* Skills Grid */}
+          <div className="grid lg:grid-cols-2 gap-8">
+            {skillCategories.map((category, categoryIndex) => (
               <motion.div
+                key={category.title}
                 variants={itemVariants}
-                className="flex items-center mb-8"
+                className="card p-8 space-y-6"
+                whileHover={{ y: -5 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ delay: categoryIndex * 0.1 }}
               >
-                <div className="p-3 bg-primary-100 dark:bg-primary-900/30 rounded-lg mr-4">
-                  <category.icon className="h-8 w-8 text-primary-600 dark:text-primary-400" />
+                {/* Category Header */}
+                <div className="flex items-center space-x-4">
+                  <div className={`p-3 rounded-xl bg-gradient-to-r ${category.color} text-white`}>
+                    <category.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-200">
+                    {category.title}
+                  </h3>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                  {category.title}
-                </h3>
+
+                {/* Skills List */}
+                <div className="space-y-4">
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.div
+                      key={skill.name}
+                      className="space-y-2"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                      transition={{ delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
+                    >
+                      <div className="flex justify-between items-center">
+                        <span className="text-slate-700 dark:text-slate-300 font-medium">
+                          {skill.name}
+                        </span>
+                        <span className="text-slate-500 dark:text-slate-400 text-sm">
+                          {skill.level}%
+                        </span>
+                      </div>
+                      <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+                        <motion.div
+                          className={`h-2 rounded-full ${skill.color}`}
+                          initial={{ width: 0 }}
+                          animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
+                          transition={{ 
+                            delay: (categoryIndex * 0.1) + (skillIndex * 0.05) + 0.3,
+                            duration: 0.8,
+                            ease: "easeOut"
+                          }}
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
+            ))}
+          </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill.name}
-                    variants={itemVariants}
-                    className="space-y-2"
-                  >
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">
-                        {skill.name}
-                      </span>
-                      <span className="text-primary-600 dark:text-primary-400 font-semibold">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 dark:bg-dark-700 rounded-full h-2">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: skillIndex * 0.1 }}
-                        className="h-2 bg-gradient-to-r from-primary-500 to-purple-500 rounded-full"
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Additional Info */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
+          {/* Additional Skills */}
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-r from-primary-500 to-purple-600 rounded-2xl p-8 text-white"
+            className="text-center space-y-8"
           >
-            <h3 className="text-2xl font-bold mb-4">
-              Always Learning & Growing
+            <h3 className="text-3xl font-bold text-slate-800 dark:text-slate-200">
+              Additional Expertise
             </h3>
-            <p className="text-lg opacity-90 max-w-3xl mx-auto">
-              Technology evolves rapidly, and so do I. I'm constantly learning new technologies, 
-              frameworks, and best practices to stay at the forefront of development. 
-              Currently exploring AI/ML integration and advanced cloud architectures.
-            </p>
+            
+            <div className="flex flex-wrap justify-center gap-4">
+              {[
+                'Problem Solving', 'Team Collaboration', 'Code Review', 'Agile Methodology',
+                'Project Management', 'UI/UX Design', 'Performance Optimization', 'Testing',
+                'Documentation', 'Mentoring', 'Continuous Learning', 'Innovation'
+              ].map((skill, index) => (
+                <motion.span
+                  key={skill}
+                  className="px-6 py-3 bg-white dark:bg-slate-700 rounded-full text-slate-700 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-600 hover:border-blue-500 dark:hover:border-blue-400 transition-colors duration-200"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </div>

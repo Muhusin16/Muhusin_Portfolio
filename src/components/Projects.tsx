@@ -1,9 +1,112 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Github, ExternalLink, Eye, Code2, Palette, Smartphone } from 'lucide-react'
+import { useInView } from 'framer-motion'
+import { useRef, useState } from 'react'
+import { ExternalLink, Github, Calendar, Users } from 'lucide-react'
 
 const Projects = () => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [activeFilter, setActiveFilter] = useState('all')
+
+  const projects = [
+    {
+      id: 1,
+      title: 'Housing First Minnesota',
+      description: 'A comprehensive web application for residential builders association, focusing on housing industry advocacy and member services.',
+      longDescription: 'Developed a full-stack application using Next.js for both frontend and backend. Implemented user authentication, member management, and advocacy tracking features. The platform serves as a central hub for Minnesota\'s housing industry professionals.',
+      image: '/api/placeholder/600/400',
+      category: 'web',
+      technologies: ['Next.js', 'MongoDB', 'Firestore', 'RESTful APIs', 'Tailwind CSS'],
+      github: 'https://github.com/Muhusin16/housing-first',
+      demo: 'https://housing-first-mn.vercel.app',
+      status: 'Completed',
+      duration: '6 months',
+      team: '3 developers',
+      features: [
+        'Member Management System',
+        'Advocacy Tracking',
+        'Event Management',
+        'Resource Library',
+        'Newsletter System'
+      ]
+    },
+    {
+      id: 2,
+      title: 'Gemini Manufacturing Portal',
+      description: 'Web application for Gemini manufacturing company with modern UI/UX design and comprehensive business management features.',
+      longDescription: 'Built a complete business management portal for Gemini manufacturing company. Features include inventory management, order tracking, customer management, and analytics dashboard. Implemented responsive design with modern UI components.',
+      image: '/api/placeholder/600/400',
+      category: 'web',
+      technologies: ['Angular', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Bootstrap'],
+      github: 'https://github.com/Muhusin16/gemini-portal',
+      demo: 'https://gemini-manufacturing.vercel.app',
+      status: 'In Progress',
+      duration: '4 months',
+      team: '2 developers',
+      features: [
+        'Inventory Management',
+        'Order Tracking',
+        'Customer Portal',
+        'Analytics Dashboard',
+        'Reporting System'
+      ]
+    },
+    {
+      id: 3,
+      title: 'Lost & Found Application',
+      description: 'A comprehensive lost and found platform designed for various environments like airports, schools, and hospitals.',
+      longDescription: 'Currently developing a full-stack lost and found application with user and admin interfaces. The platform facilitates reporting and reclaiming of lost items across different environments with advanced search and matching capabilities.',
+      image: '/api/placeholder/600/400',
+      category: 'web',
+      technologies: ['Next.js', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Firebase', 'Bootstrap'],
+      github: 'https://github.com/Muhusin16/lost-found-app',
+      demo: 'https://lost-found-platform.vercel.app',
+      status: 'In Development',
+      duration: '3 months',
+      team: 'Solo project',
+      features: [
+        'Item Reporting System',
+        'Advanced Search',
+        'Image Recognition',
+        'Admin Dashboard',
+        'Notification System',
+        'Multi-location Support'
+      ]
+    },
+    {
+      id: 4,
+      title: 'E-Commerce Platform',
+      description: 'Modern e-commerce solution with advanced features like real-time inventory, payment processing, and analytics.',
+      longDescription: 'Developed a complete e-commerce platform with modern features including real-time inventory management, secure payment processing, order tracking, and comprehensive analytics dashboard.',
+      image: '/api/placeholder/600/400',
+      category: 'web',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Socket.io', 'Material-UI'],
+      github: 'https://github.com/Muhusin16/ecommerce-platform',
+      demo: 'https://modern-ecommerce.vercel.app',
+      status: 'Completed',
+      duration: '5 months',
+      team: '4 developers',
+      features: [
+        'Product Management',
+        'Shopping Cart',
+        'Payment Integration',
+        'Order Management',
+        'Analytics Dashboard',
+        'Admin Panel'
+      ]
+    }
+  ]
+
+  const filters = [
+    { key: 'all', label: 'All Projects' },
+    { key: 'web', label: 'Web Applications' },
+    { key: 'mobile', label: 'Mobile Apps' },
+    { key: 'api', label: 'APIs & Backend' }
+  ]
+
+  const filteredProjects = projects.filter(project => 
+    activeFilter === 'all' || project.category === activeFilter
+  )
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -27,254 +130,184 @@ const Projects = () => {
     }
   }
 
-  const filters = [
-    { id: 'all', label: 'All Projects' },
-    { id: 'web', label: 'Web Apps' },
-    { id: 'design', label: 'UI/UX Design' },
-  ]
-
-  const projects = [
-    {
-      id: 1,
-      title: 'Housing First Minnesota Project',
-      description: 'A leading trade association for residential builders, remodelers, developers, and building industry suppliers in Minnesota. The project focused on uniting the housing industry through advocacy for housing and homeownership.',
-      image: '/api/placeholder/600/400',
-      category: 'web',
-      technologies: ['Next.js', 'MongoDB', 'Firestore', 'RESTful APIs'],
-      github: 'https://github.com/Muhusinte',
-      live: '#',
-      featured: true
-    },
-    {
-      id: 2,
-      title: 'Gemini Web Application',
-      description: 'Web application development project for Gemini, a manufacturing company. Full-stack web development with modern UI/UX design.',
-      image: '/api/placeholder/600/400',
-      category: 'web',
-      technologies: ['Angular', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Firebase', 'Bootstrap'],
-      github: 'https://github.com/Muhusinte',
-      live: '#',
-      featured: true
-    },
-    {
-      id: 3,
-      title: 'Lost and Found Application',
-      description: 'Currently developing a Lost and Found application designed to facilitate the reporting and reclaiming of lost items in various environments, such as airports, schools, and hospitals.',
-      image: '/api/placeholder/600/400',
-      category: 'web',
-      technologies: ['Next.js', 'TypeScript', 'Node.js', 'Express.js', 'MongoDB', 'Firebase', 'Bootstrap'],
-      github: 'https://github.com/Muhusinte',
-      live: '#',
-      featured: true
-    },
-    {
-      id: 4,
-      title: 'Housekeeping Application',
-      description: 'Cutting-edge housekeeping application that revolutionizes task management within companies, offering a streamlined and transparent workflow tracking system.',
-      image: '/api/placeholder/600/400',
-      category: 'web',
-      technologies: ['Node.js', 'Express.js', 'React.js', 'MongoDB', 'Git', 'Firebase'],
-      github: 'https://github.com/Muhusinte',
-      live: '#',
-      featured: false
-    }
-  ]
-
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter)
-
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'web': return Code2
-      case 'mobile': return Smartphone
-      case 'design': return Palette
-      default: return Eye
-    }
-  }
-
   return (
-    <section id="projects" className="section-padding bg-gray-50 dark:bg-dark-800">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="section-padding bg-white dark:bg-slate-900 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-5 dark:opacity-10">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20"></div>
+      </div>
+
+      <div className="container-custom relative z-10">
         <motion.div
+          ref={ref}
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center mb-16"
+          animate={isInView ? "visible" : "hidden"}
+          className="space-y-16"
         >
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl sm:text-5xl font-bold mb-6"
-          >
-            My <span className="gradient-text">Projects</span>
-          </motion.h2>
-          
-          <motion.p
-            variants={itemVariants}
-            className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8"
-          >
-            A showcase of my recent work and side projects
-          </motion.p>
+          {/* Header */}
+          <motion.div variants={itemVariants} className="text-center space-y-4">
+            <h2 className="text-5xl font-bold text-slate-800 dark:text-slate-200">
+              My <span className="gradient-text">Projects</span>
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto"></div>
+            <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+              A showcase of my recent work and the technologies I've used to build innovative solutions
+            </p>
+          </motion.div>
 
           {/* Filter Buttons */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap justify-center gap-4 mb-12"
-          >
+          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4">
             {filters.map((filter) => (
               <motion.button
-                key={filter.id}
+                key={filter.key}
+                onClick={() => setActiveFilter(filter.key)}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  activeFilter === filter.key
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
+                }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  activeFilter === filter.id
-                    ? 'bg-primary-600 text-white shadow-lg'
-                    : 'bg-white dark:bg-dark-700 text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-primary-900/30'
-                }`}
               >
                 {filter.label}
               </motion.button>
             ))}
           </motion.div>
-        </motion.div>
 
-        {/* Projects Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {filteredProjects.map((project) => {
-            const CategoryIcon = getCategoryIcon(project.category)
-            
-            return (
+          {/* Projects Grid */}
+          <motion.div
+            variants={containerVariants}
+            className="grid lg:grid-cols-2 gap-8"
+          >
+            {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 variants={itemVariants}
+                className="card group overflow-hidden"
                 whileHover={{ y: -10 }}
-                className={`card group relative overflow-hidden ${
-                  project.featured ? 'md:col-span-2 lg:col-span-1' : ''
-                }`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ delay: index * 0.1 }}
               >
                 {/* Project Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-primary-500 to-purple-600 flex items-center justify-center">
-                    <CategoryIcon className="h-16 w-16 text-white opacity-80" />
+                <div className="relative h-48 bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-4xl font-bold text-slate-500 dark:text-slate-400">
+                      {project.title.split(' ').map(word => word[0]).join('')}
+                    </div>
                   </div>
                   
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors duration-300"
-                    >
-                      <Github className="h-6 w-6 text-white" />
-                    </motion.a>
-                    <motion.a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors duration-300"
-                    >
-                      <ExternalLink className="h-6 w-6 text-white" />
-                    </motion.a>
+                  {/* Status Badge */}
+                  <div className="absolute top-4 right-4">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      project.status === 'Completed' 
+                        ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+                        : project.status === 'In Progress'
+                        ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
+                        : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
+                    }`}>
+                      {project.status}
+                    </span>
                   </div>
-
-                  {/* Featured Badge */}
-                  {project.featured && (
-                    <div className="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      Featured
-                    </div>
-                  )}
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
+                <div className="p-6 space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Project Meta */}
+                  <div className="flex flex-wrap gap-4 text-sm text-slate-500 dark:text-slate-400">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-4 w-4" />
+                      {project.duration}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Users className="h-4 w-4" />
+                      {project.team}
+                    </div>
+                  </div>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm rounded-full"
+                        className="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full text-xs font-medium"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
+                  {/* Key Features */}
+                  <div className="space-y-2">
+                    <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300">Key Features:</h4>
+                    <ul className="grid grid-cols-2 gap-1 text-xs text-slate-600 dark:text-slate-400">
+                      {project.features.slice(0, 4).map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center gap-1">
+                          <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
                   {/* Action Buttons */}
-                  <div className="flex space-x-4">
+                  <div className="flex gap-3 pt-4">
                     <motion.a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
                     >
-                      <Github className="h-5 w-5" />
-                      <span className="text-sm font-medium">Code</span>
+                      <Github className="h-4 w-4" />
+                      Code
                     </motion.a>
                     
                     <motion.a
-                      href={project.live}
+                      href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
                     >
-                      <ExternalLink className="h-5 w-5" />
-                      <span className="text-sm font-medium">Live Demo</span>
+                      <ExternalLink className="h-4 w-4" />
+                      Live Demo
                     </motion.a>
                   </div>
                 </div>
               </motion.div>
-            )
-          })}
-        </motion.div>
+            ))}
+          </motion.div>
 
-        {/* Call to Action */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
+          {/* Call to Action */}
           <motion.div
             variants={itemVariants}
-            className="bg-gradient-to-r from-primary-500 to-purple-600 rounded-2xl p-8 text-white"
+            className="text-center space-y-6"
           >
-            <h3 className="text-2xl font-bold mb-4">
-              Interested in Working Together?
+            <h3 className="text-3xl font-bold text-slate-800 dark:text-slate-200">
+              Interested in working together?
             </h3>
-            <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
-              I'm always excited to work on new projects and collaborate with amazing people. 
-              Let's create something incredible together!
+            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+              I'm always excited to take on new challenges and create innovative solutions. 
+              Let's discuss how we can bring your ideas to life.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-primary-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-all duration-300"
+              className="btn-primary text-lg px-8 py-4"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Start a Project
