@@ -2,6 +2,15 @@ import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, Download, ChevronDown } from 'lucide-react'
 
 const Hero = () => {
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = './Mohamed_Muhusin_CV.txt';
+    link.download = 'Mohamed_Muhusin_CV.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -89,16 +98,15 @@ const Hero = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <motion.a
-              href="/Mohamed_Muhusin_CV.txt"
-              download="Mohamed_Muhusin_CV.txt"
+            <motion.button
+              onClick={handleDownloadCV}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-primary flex items-center gap-2"
             >
               <Download className="h-5 w-5" />
               Download CV
-            </motion.a>
+            </motion.button>
             
             <motion.button
               whileHover={{ scale: 1.05 }}
