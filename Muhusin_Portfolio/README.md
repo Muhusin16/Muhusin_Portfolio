@@ -7,6 +7,7 @@ sdk: static
 pinned: false
 license: mit
 app_port: 3000
+app_file: dist/index.html
 ---
 
 # Mohamed Muhusin S - Software Engineer Portfolio
@@ -55,12 +56,29 @@ I'm a passionate developer with over 2+ years of experience in building responsi
 # Install dependencies
 npm install
 
-# Start development server
+# Start development server (uses src/ folder)
 npm run dev
 
-# Build for production
+# Build for production (creates dist/ folder)
 npm run build
+
+# Preview production build
+npm run preview
 ```
+
+## 🚀 Deployment
+
+This portfolio is deployed on **Hugging Face Spaces** using the `dist/` folder for production.
+
+- **Development**: Uses `src/` folder with Vite dev server
+- **Production**: Uses `dist/` folder with built/optimized files
+- **Live URL**: https://huggingface.co/spaces/Muhusin/Muhusin_Portfolio
+
+### Deployment Process:
+1. Make changes in `src/` folder
+2. Run `npm run build` to create production build in `dist/`
+3. Commit and push changes to Hugging Face Spaces
+4. The Space automatically serves files from `dist/` folder
 
 ---
 

@@ -10,7 +10,7 @@
 
 # production
 /build
-# /dist - Commented out to include built files for Hugging Face Spaces
+# /dist - Commented out to include built files for Hugging Face Spaces deployment
 
 # misc
 .DS_Store
@@ -22,3 +22,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Development files (src/ is tracked for development)
+# Note: src/ folder is for development, dist/ folder is for production deployment
