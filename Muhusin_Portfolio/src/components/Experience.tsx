@@ -91,21 +91,21 @@ const Experience = () => {
   const certifications = [
     {
       type: 'certification',
-      title: 'Full Stack Web Development',
-      company: 'Online Platform',
-      location: 'Remote',
+      title: 'MERN Stack and Python Training',
+      company: 'QSpiders Training Institute',
+      location: 'Chennai, India',
       period: '2023',
-      duration: '6 months',
-      description: 'Comprehensive course covering modern web development technologies.',
+      duration: '4 months',
+      description: 'Advanced training program combining MERN stack development with Python programming skills.',
       achievements: [
-        'Mastered React.js and Node.js',
-        'Learned database design and management',
-        'Completed multiple hands-on projects',
-        'Gained expertise in modern development practices'
+        'Advanced MERN stack development',
+        'Python programming fundamentals',
+        'Database design and management',
+        'API development and integration'
       ],
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express.js', 'JavaScript', 'HTML/CSS'],
+      technologies: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Python', 'RESTful APIs'],
       icon: Award,
-      color: 'from-indigo-500 to-blue-500'
+      color: 'from-green-500 to-emerald-500'
     }
   ]
 

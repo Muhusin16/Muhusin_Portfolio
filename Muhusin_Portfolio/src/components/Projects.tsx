@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { ExternalLink, Github, Calendar, Users } from 'lucide-react'
+import { Calendar, Users } from 'lucide-react'
 
 const Projects = () => {
   const ref = useRef(null)
@@ -100,7 +100,6 @@ const Projects = () => {
   const filters = [
     { key: 'all', label: 'All Projects' },
     { key: 'web', label: 'Web Applications' },
-    { key: 'mobile', label: 'Mobile Apps' },
     { key: 'api', label: 'APIs & Backend' }
   ]
 
@@ -259,33 +258,6 @@ const Projects = () => {
                         </li>
                       ))}
                     </ul>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex gap-3 pt-4">
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors duration-200"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Github className="h-4 w-4" />
-                      Code
-                    </motion.a>
-                    
-                    <motion.a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      Live Demo
-                    </motion.a>
                   </div>
                 </div>
               </motion.div>

@@ -11,7 +11,7 @@ const About = () => {
     { icon: Code, number: '2+', label: 'Years Experience', color: 'text-blue-500' },
     { icon: Coffee, number: '1000+', label: 'Cups of Coffee', color: 'text-amber-500' },
     { icon: Users, number: '5+', label: 'Team Projects', color: 'text-green-500' },
-    { icon: Award, number: '10+', label: 'Projects Completed', color: 'text-purple-500' },
+    { icon: Award, number: '7+', label: 'Projects Completed', color: 'text-purple-500' },
   ]
 
   const techStack = [
