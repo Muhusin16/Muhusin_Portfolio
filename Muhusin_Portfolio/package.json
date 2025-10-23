@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "deploy": "npm run build && echo 'Build complete! Commit and push to Hugging Face Spaces to deploy.'",
-    "deploy:hf": "npm run build && git add . && git commit -m 'Deploy: Update portfolio' && git push"
+    "deploy:hf": "npm run build && git add . && git commit -m \"Deploy: Update portfolio\" && git push"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
