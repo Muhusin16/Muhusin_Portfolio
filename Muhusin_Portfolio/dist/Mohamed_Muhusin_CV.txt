@@ -1,0 +1,93 @@
+# Mohamed Muhusin S - Software Engineer
+
+## Contact Information
+- **Email**: muhusin161099@gmail.com
+- **Phone**: +91 8508179608
+- **Location**: Bengaluru, India
+- **GitHub**: https://github.com/Muhusinte
+- **LinkedIn**: https://www.linkedin.com/in/mohamed-muhusin
+
+## Professional Summary
+Passionate developer with over 2+ years of experience in building responsive web applications. Proficient in Node.js, Express.js, MongoDB, Firebase and skilled in various frameworks including React.js, Next.js and Strapi.
+
+## Work Experience
+
+### Software Engineer
+**Zool Tech Solutions Pvt Ltd** | Bengaluru, Karnataka, India | 08/2023 - Present
+
+- Successfully completed Housing First Minnesota project for residential builders association
+- Developed full-stack applications using Next.js for both frontend and backend
+- Worked on Gemini manufacturing company web application development
+- Currently developing Lost and Found application with user and admin interfaces
+- Maintained and integrated RESTful APIs for seamless data flow
+- Collaborated effectively with teams to manage entire development process
+- Gained 2+ years of experience in web application development
+
+**Technologies**: Next.js, Node.js, Express.js, MongoDB, Firebase, TypeScript, Angular, Bootstrap
+
+## Education
+
+### Bachelor of Engineering - BE, Mechanical Engineering
+**DHAANISH AHMED INSTITUTE OF TECHNOLOGY** | Coimbatore, India | 09/2017 - 06/2021
+- Graduated with CGPA: 8.7/10
+- Strong foundation in engineering principles
+- Developed problem-solving and analytical skills
+
+### 12th Grade
+**Sri Sakthi vinayagar Matric Hr.sec School** | Cumbum, Tamil Nadu | 06/2016 - 05/2017
+- Scored 74.2% in final examinations
+
+### SSLC (10th Grade)
+**Anns Matric Higher Secondary School** | Cumbum, Tamil Nadu | 06/2014 - 05/2015
+- Scored 92.7% in final examinations
+
+## Technical Skills
+
+### Frontend Development
+- React.js (90%)
+- Next.js (85%)
+- HTML (95%)
+- CSS (90%)
+- JavaScript (88%)
+- TypeScript (80%)
+
+### Backend Development
+- Node.js (90%)
+- Express.js (85%)
+- MongoDB (85%)
+- MySQL (80%)
+- Firebase (85%)
+- API Integration (90%)
+
+### Tools & Version Control
+- Git (90%)
+- GitHub (90%)
+- Bitbucket (80%)
+- Docker (75%)
+- RESTful APIs (90%)
+- Strapi (70%)
+
+## Projects
+
+### Housing First Minnesota Project
+A leading trade association for residential builders, remodelers, developers, and building industry suppliers in Minnesota. The project focused on uniting the housing industry through advocacy for housing and homeownership.
+**Technologies**: Next.js, MongoDB, Firestore, RESTful APIs
+
+### Gemini Web Application
+Web application development project for Gemini, a manufacturing company. Full-stack web development with modern UI/UX design.
+**Technologies**: Angular, TypeScript, Node.js, Express.js, MongoDB, Firebase, Bootstrap
+
+### Lost and Found Application
+Currently developing a Lost and Found application designed to facilitate the reporting and reclaiming of lost items in various environments, such as airports, schools, and hospitals.
+**Technologies**: Next.js, TypeScript, Node.js, Express.js, MongoDB, Firebase, Bootstrap
+
+### Housekeeping Application
+Cutting-edge housekeeping application that revolutionizes task management within companies, offering a streamlined and transparent workflow tracking system.
+**Technologies**: Node.js, Express.js, React.js, MongoDB, Git, Firebase
+
+## Certifications
+- Training in MERN stack - Chennai Training Institute (2023)
+- Professional course of HVAC design & Revit MEP - Reads Engineering LLP (2022)
+
+---
+*This CV was generated from my portfolio website: https://huggingface.co/spaces/Muhusin/Muhusin_Portfolio*
